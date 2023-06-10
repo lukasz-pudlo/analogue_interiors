@@ -17,6 +17,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from projects.models import Project
+
+from neapolitan.views import CRUDView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
+
+
+class ProjectView(CRUDView):
+    model = Project
+    fields = ["name", "description"]
+
+
+urlpatterns += ProjectView.get_urls()
