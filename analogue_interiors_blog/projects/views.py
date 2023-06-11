@@ -17,14 +17,16 @@ class ProjectDetailView(DetailView):
 class ProjectCreateView(CreateView):
     model = Project
     template_name = 'projects/project_form.html'
+    fields = ['name', 'description']
 
 
 class ProjectUpdateView(UpdateView):
     model = Project
     template_name = 'projects/project_form.html'
+    fields = ['name', 'description']
 
 
 class ProjectDeleteView(DeleteView):
     model = Project
     template_name = 'projects/project_confirm_delete.html'
-    success_url = reverse_lazy('projects')
+    success_url = reverse_lazy('projects:list')
