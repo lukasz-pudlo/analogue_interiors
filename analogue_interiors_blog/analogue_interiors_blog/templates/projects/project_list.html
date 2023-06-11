@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+
+{% block content %}
+    <h1>Projects</h1>
+    {% for project in object_list %}
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">{{ project.name }}</h5>
+            <p class="card-text">{{ project.description }}</p>
+            <a href="{{ project.get_absolute_url }}" class="btn btn-primary">Details</a>
+        </div>
+    </div>
+    {% endfor %}
+    <a href="{% url 'projects:create' %}" class="btn btn-success">Create New Project</a>
+{% endblock %}
