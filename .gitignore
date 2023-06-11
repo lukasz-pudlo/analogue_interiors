@@ -23,6 +23,7 @@ ENV.bak/
 *.log
 *.pot
 *.pyc
+.env
 db.sqlite3
 media
 
